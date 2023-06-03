@@ -10,7 +10,7 @@ public class Main {
         GeneratorNumbWithWeight generator = new GeneratorNumbWithWeight(numbs, weight);
 
         System.out.println("Для генерации нажмите 1\nДля окончания нажмите 2\n");
-
+        // Подобие главного меню
         for(;;){
 
             answer = scanner.nextInt();
