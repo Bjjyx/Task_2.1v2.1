@@ -32,9 +32,9 @@ public class GeneratorNumbWithWeight {
         int totalWeight = IntStream.of(weight).sum();
 
         int generatedNumb = 0;
-        int idx = 0;
+        int randomWeight = (int) (Math.random() * (double)totalWeight);
 
-        for(int randomWeight = (int) (Math.random() * (double)totalWeight); idx < (numbs.length - 1);  ++idx){
+        for(int idx = 0; idx < (numbs.length - 1);  ++idx){
             randomWeight -= weight[idx];
             if (randomWeight <= 0){
                 generatedNumb = numbs[idx];
