@@ -1,3 +1,5 @@
+import java.util.stream.IntStream;
+
 //Напишите класс, конструктор которого принимает два массива: массив значений и массив весов значений.
 //        Класс должен содержать метод, который будет возвращать элемент из первого массива случайным образом, с учётом его веса.
 //        Пример:
@@ -5,8 +7,8 @@
 //        В среднем, значение «1» должно возвращаться в 2 раза реже, чем значение «2» и в десять раз реже, чем значение «3».
 public class GeneratorNumbWithWeight {
 
-    private int[] numbs;
-    private int[] weight;
+    private final int[] numbs;
+    private final int[] weight;
 
     public GeneratorNumbWithWeight(int[] numbs, int[] weight){
 
@@ -15,48 +17,33 @@ public class GeneratorNumbWithWeight {
 
     }
 
-    public int generator(){
-
-        int generateNumb = 0;
+    private void isEqual(){
 
         if (numbs.length != weight.length){
             System.out.println("Ошибка: не совпадение входящих массивов");
             System.exit(1);
         }
 
-        int totalWeight = 0;
+    }
 
-        for (int j : weight) {
-            totalWeight = totalWeight + j;
-        }
-        int randomWeight = (int) (Math.random() * ++totalWeight);
+    public int generator(){
 
-        for(int i = 0; i < weight.length; i++){
-            if((randomWeight - weight[i]) < 0){
-                generateNumb = numbs[i];
+        isEqual();
+
+        int totalWeight = IntStream.of(weight).sum();
+
+        int generatedNumb = 0;
+        int idx = 0;
+
+        for(int randomWeight = (int) (Math.random() * (double)totalWeight); idx < (numbs.length - 1);  ++idx){
+            randomWeight -= weight[idx];
+            if (randomWeight <= 0){
+                generatedNumb = numbs[idx];
+                break;
             }
         }
 
-//        Тут получается слишком рандомная генерация, по идеи формула не правильная, оставил когд чисто для себя
-//        int generateNumb = 0;
-//        boolean numbGenerate = false;
-//
-//        if (numbs.length != weight.length){
-//            System.out.println("Ошибка: не совпадение входящих массивов");
-//            System.exit(1);
-//        }
-//
-//        while (!numbGenerate){
-//            int i = (int) (Math.random()*10);
-//            for (int j = 0; j < weight[j]; j++){
-//                if (Math.random() > 0.5){
-//                    generateNumb = numbs[i];
-//                    numbGenerate = true;
-//                }
-//            }
-//        }
-
-        return generateNumb;
+        return generatedNumb;
 
     }
 
