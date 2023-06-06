@@ -9,14 +9,14 @@ public class GeneratorNumbWithWeight {
 
     private final int[] numbs;
     private final int[] weight;
-
+    // Конструктор генератора с входящими массивами
     public GeneratorNumbWithWeight(int[] numbs, int[] weight){
 
         this.numbs = numbs;
         this.weight = weight;
 
     }
-
+    // Проверяем одинакова ли длинна массивов
     private void isEqual(){
 
         if (numbs.length != weight.length){
@@ -25,7 +25,7 @@ public class GeneratorNumbWithWeight {
         }
 
     }
-
+    // Сам генератор, который вадает "случайное" значения numbs в зависимости от веса из массива weight
     public int generator(){
 
         isEqual();
