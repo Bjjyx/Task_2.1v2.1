@@ -20,8 +20,7 @@ public class GeneratorNumbWithWeight {
     private void isEqual(){
 
         if (numbs.length != weight.length){
-            System.out.println("Ошибка: не совпадение входящих массивов");
-            System.exit(1);
+            throw new IllegalArgumentException("Ошибканама, длины массивов не совпадают, иди правь");
         }
 
     }
