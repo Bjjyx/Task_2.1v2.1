@@ -6,7 +6,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         int answer;
         int[] numbs = {1, 2, 3};
-        int[] weight = {10, 1, 100};
+        int[] weight = {500, 1, 1000};
         GeneratorNumbWithWeight generator = new GeneratorNumbWithWeight(numbs, weight);
 
         System.out.println("Для генерации введите 1\nДля окончания введите любое другое число\n");

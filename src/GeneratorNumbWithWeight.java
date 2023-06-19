@@ -63,7 +63,7 @@ public class GeneratorNumbWithWeight {
         int weight = 0;
         int randomWeight = (int) (Math.random() * (double)totalWeight);
 
-        for(int i = 0; i < sortedWeightArray.length; i++){
+        for(int i = sortedWeightArray.length - 1; i >= 0; i--){
 
             weight = weight + sortedWeightArray[i];
             if (weight >= randomWeight){
